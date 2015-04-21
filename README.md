@@ -35,7 +35,23 @@ where the start number is the first ```png``` image in that directory.
 visual files in order to create the movie file). Also, create an empty directory for
 the images to be uploaded so you do not run low on disk space.*
 
+**Background**
+
+
+
+Every point of the FFT describes the spectral density of the frequency band that is centered
+on a frequency that is a fraction of the sampling rate. The spectral density is the amplitude
+present for each bandwidth. 
+
+[fftavgs] quotes, "Given a sample of 1024 samples with a sampling rate of 441100 Hz, a 1024 point FFT will give
+us a freuqency spectrum of 513 points with a total bandwith of 22050 Hz. Each point ```i``` in the
+FFT represents a frequency band centered on the frequency ```i/1024 * 44100``` whose bandwidth is 
+```2/1024 * 22050 = 43.0664062 Hz```, with the exception of ```spectrum[0]``` and ```spectrum[512]```,
+whose bandwidth is ```1/1024 * 22050 = 21.5332031 Hz```."
+
 **Code Explanation**
+
+We need to group the spectrums in a logarithmic average to span an octave. By grouping the f
 
 
  ```python
@@ -55,6 +71,7 @@ def avgfftbands(fftarray):
         avg /= (upperBound - lowBound + 1)
         fftavg.append(avg)
  ```
+
 
 
 **Resources**
