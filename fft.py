@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 
  
 if __name__ == '__main__':
+    #filename = "yourfavoritesong.wav"
     filename = "Treehome95.wav"
     fileW = audio.LocalAudioFile(filename)
     trackTitle = open(filename)
