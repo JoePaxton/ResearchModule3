@@ -10,7 +10,7 @@ The following command-line prompt will do the trick:
 ```
 ffmpeg -start_number 00000 -i frame_%05d.png -i Treehome95.wav Treehome95.mpg
 ```
-where **Treehome** is the song name in the same directory as the ```png``` images.
+where **Treehome95** is the song name in the same directory as the ```png``` images.
 
 The movie file that is created from the snippet above is not truly the result of a 
 real-time application; however, it can play the audio along with the associated png 
