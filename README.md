@@ -37,17 +37,17 @@ the images to be uploaded so you do not run low on disk space.*
 
 **Background**
 
-When the FFT has a bunch of bins (equally divided strips in a window that describes the spectrum sample and frequency of the window), every signal is in the center of all the bins. The FFT simply takes a chunk of time (samples) and considers that chunk to be a single period of a repeating waveform. Most sounds are constant. Over any short period of time, the sound usually look like a regularly repeating function.
+When the [FFT] has a bunch of bins (equally divided strips in a window that describes the spectrum sample and frequency of the window), every signal is in the center of all the bins. The [FFT] simply takes a chunk of time (samples) and considers that chunk to be a single period of a repeating waveform. Most sounds are constant. Over any short period of time, the sound usually look like a regularly repeating function.
 
-Since noise may be present on samples, it may be advantageous to take several samples and average the resu1ts. This is done by averaging the spectral lines after the FFT is completed, which may reduce the background noise level. Since this greatly increases the computer time, it should not be used except as needed and with fast processors.
+Since noise may be present on samples, it may be advantageous to take several samples and average the resu1ts. This is done by averaging the spectral lines after the [FFT] is completed, which may reduce the background noise level. Since this greatly increases the computer time, it should not be used except as needed and with fast processors.
 
-Every point of the FFT describes the spectral density of the frequency band that is centered
+Every point of the [FFT] describes the spectral density of the frequency band that is centered
 on a frequency that is a fraction of the sampling rate. The spectral density is the amplitude
 present for each bandwidth. 
 
-[fftavgs] quotes, "Given a sample of 1024 samples with a sampling rate of 441100 Hz, a 1024 point FFT will give
+[fftavgs] quotes, "Given a sample of 1024 samples with a sampling rate of 441100 Hz, a 1024 point [FFT] will give
 us a freuqency spectrum of 513 points with a total bandwith of 22050 Hz. Each point ```i``` in the
-FFT represents a frequency band centered on the frequency ```i/1024 * 44100``` whose bandwidth is 
+[FFT] represents a frequency band centered on the frequency ```i/1024 * 44100``` whose bandwidth is 
 ```2/1024 * 22050 = 43.0664062 Hz```, with the exception of ```spectrum[0]``` and ```spectrum[512]```,
 whose bandwidth is ```1/1024 * 22050 = 21.5332031 Hz```." If you use this information in a linear algorithm,
 you lose some of the audio information in the lower frequency domains; therefore, we need to implement
@@ -57,8 +57,8 @@ this in a logarithmic way.
 
 We need to group the spectrums in a logarithmic average to span an octave. By grouping the frequencies
 into 12 bandwidths, the detection of an attack during the song is easily read. Knowing what frequency 
-each point in the FFT corresponds to and the bandwidth at the point in ```band``` allows
-us to compute the logarithmically spaced averages. This maps the frequencies to the FFT spectrum.
+each point in the [FFT] corresponds to and the bandwidth at the point in ```band``` allows
+us to compute the logarithmically spaced averages. This maps the frequencies to the [FFT] spectrum.
 
 This computes only 12 averages, which determines the number of octaves based on the sample rate and the 
 smallest bandwidth needed for a single octave.
@@ -90,6 +90,6 @@ def avgfftbands(fftarray):
 
 [numpyfft]: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
 [fftavgs]: http://code.compartmental.net/2007/03/21/fft-averages/comment-page-1/
-[fftrelationship]: http://www.vibrationworld.com/AppNotes%5CSampling.htm
+[FFT]: https://www.youtube.com/watch?v=tqcZrPMi4nk
 [fft.py]: https://github.com/JoePaxton/ResearchModule3/blob/master/fft.py
 [build2.py]: https://github.com/JoePaxton/ResearchModule3/blob/master/build2.py
