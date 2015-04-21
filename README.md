@@ -83,10 +83,9 @@ def avgfftbands(fftarray):
 
 **Resources**
 
-1. [numpyfft]
-2. [fftavgs]
-3. [fftrelationship]
-
+1. [fftavgs]
+2. [FFT]
+3. [numpyfft]
 
 [numpyfft]: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
 [fftavgs]: http://code.compartmental.net/2007/03/21/fft-averages/comment-page-1/
