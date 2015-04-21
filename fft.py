@@ -46,7 +46,7 @@ if __name__ == '__main__':
 		
     fftavg = []
     
-    def average_fft_bands(fft_array):
+    def avgfftbands(fftarray):
         numBands = 12
         del fftavg[:]
         for band in range(0, numBands):
@@ -59,7 +59,7 @@ if __name__ == '__main__':
             lowBound = int(freqToIndex(lowFreq))
             upperBound = int(freqToIndex(hiFreq))
             for j in range(lowBound, upperBound):
-                avg += fft_array[j]			
+                avg += fftarray[j]			
             avg /= (upperBound - lowBound + 1)
             fftavg.append(avg)
 
@@ -72,7 +72,7 @@ if __name__ == '__main__':
 		fft = abs(np.fft.fft(sampleRange))
 		fft *= ((2**.5)/sampleSize)
 		plt.ylim(0, 1000)
-		average_fft_bands(fft)
+		avgfftbands(fft)
 		y = fftavg
 		width = 0.35
 		plt.title(trackName)
