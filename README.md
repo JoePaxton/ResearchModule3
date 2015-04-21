@@ -16,15 +16,24 @@ The movie file that is created from the snippet above is not truly the result of
 real-time application; however, it can play the audio along with the associated png 
 images, thus demonstrating the audio attributes displayed as the song is played back. 
 
+If you wish, you can change the song. Keep in mind that the ```wav``` file needs to be
+in the same directory as this program or you can just fully qualify the path.
+
+
+[build2.py] analyzes the timbre and pitches over segments in a movie file. The movie file
+is hundreds of still frame ```png``` images at a certain point in the song. The amount of
+segments there are is equivalent to the amount of images that are produced. 
+
+Since, I do not incorporate the frame rate, the command line will do the trick:
+```
+ffmpeg -framerate 1.28/1 -start_number 00001 -i Scatter_%05d.png -i Treehome.wav TreehomeMovie.mp4
+```
+where the start number is the first ```png``` image in that directory.
+
+
 *You need a full version of ffmpeg (or a version of ffmpeg capable of handling audio 
-visual files in order to create the movie file).*
-
-
-
-**Background**
-
-
-
+visual files in order to create the movie file). Also, create an empty directory for
+the images to be uploaded so you do not run low on disk space.*
 
 **Code Explanation**
 
