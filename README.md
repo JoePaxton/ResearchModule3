@@ -35,10 +35,10 @@ def avgfftbands(fftarray):
 
 
 **Resources**
+
 1. [numpyfft]
 2. [fftavgs]
 3. [fftrelationship]
-
 
 
 [numpyfft]: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
