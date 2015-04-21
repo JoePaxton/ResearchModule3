@@ -34,12 +34,7 @@ def main():
         count = count + 1
         fn = str('Scatter_%05d' % count) + '.png'
         print '\rIterating through segments...',i,fn,		
-        plt.savefig(fn,dpi=75) 
-    
-    print "Number of images: ", count+1
-    fps = (count+1) / duration
-    print "FPS: ", fps
-    print "ffmpeg parameter for framerate: ", 1/fps
+        plt.savefig(fn,dpi=75)
     
     return
 
