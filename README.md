@@ -16,8 +16,8 @@ The movie file that is created from the snippet above is not truly the result of
 real-time application; however, it can play the audio along with the associated png 
 images, thus demonstrating the audio attributes displayed as the song is played back. 
 
-**You need a full version of ffmpeg (or a version of ffmpeg capable of handling audio 
-visual files in order to create the movie file).**
+*You need a full version of ffmpeg (or a version of ffmpeg capable of handling audio 
+visual files in order to create the movie file).*
 
 
 
