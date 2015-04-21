@@ -29,7 +29,9 @@ ffmpeg -framerate 4.27/1 -start_number 00001 -i Scatter_%05d.png -i Treehome95.w
 ```
 The ```-framerate``` takes a parameter that is determined by the duration of the song and the number
 of images you need to extend over the playback. Once you know the number of images you divide it by
-the duration and invert it to get the parameter. The parameter of the ```-framerate``` is ```(numImages / duration) / 1 ```. Also the ```start number```is the first ```png``` image in that directory.
+the duration and invert it to get the parameter. The parameter of the ```-framerate``` is ```(numImages / duration) / 1 ```. Also the ```start number```is the first ```png``` image in that directory. 
+
+You should only use [build2.py] for shorter songs (or songs with fewer segments) because there is a limit to the number of images you can create in a single run. Once you exceed that number, the program will abort with a Python memory error.
 
 If you wish to learn more on creating video slideshows from images, then go to [framerate]. 
 
