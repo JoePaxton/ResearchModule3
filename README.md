@@ -87,6 +87,7 @@ for (int i = 0; i < 12; i++)
 My implementation:
  ```python
 def avgfftbands(fftarray):
+    fftavg = []
     numBands = 12
     for band in range(0, numBands):
         avg = 0.0
