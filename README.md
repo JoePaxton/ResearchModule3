@@ -25,7 +25,7 @@ of still frame ```png``` images by segments in the song. The program will create
 
 Since, I do not incorporate the frame rate, the command line will do the trick:
 ```
-ffmpeg -framerate 1.28/1 -start_number 00001 -i Scatter_%05d.png -i Treehome95.wav Treehome95Movie.mp4
+ffmpeg -framerate 4.27/1 -start_number 00001 -i Scatter_%05d.png -i Treehome95.wav Treehome95Movie.mp4
 ```
 The ```-framerate``` takes a parameter that is determined by the duration of the song and the number
 of images you need to extend over the playback. Once you know the number of images you divide it by
