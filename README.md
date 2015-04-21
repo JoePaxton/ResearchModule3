@@ -1,4 +1,4 @@
-##Animated Analysis of Treehome by Tyler, the Creator
+##Animated Analysis of Treehome95 by Tyler, the Creator
 
 **Purpose**
 
@@ -26,7 +26,7 @@ equivalent to the amount of images that are produced.
 
 Since, I do not incorporate the frame rate, the command line will do the trick:
 ```
-ffmpeg -framerate 1.28/1 -start_number 00001 -i Scatter_%05d.png -i Treehome.wav TreehomeMovie.mp4
+ffmpeg -framerate 1.28/1 -start_number 00001 -i Scatter_%05d.png -i Treehome95.wav Treehome95Movie.mp4
 ```
 where the start number is the first ```png``` image in that directory.
 
