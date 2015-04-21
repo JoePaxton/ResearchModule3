@@ -28,7 +28,10 @@ Since, I do not incorporate the frame rate, the command line will do the trick:
 ffmpeg -framerate 1.28/1 -start_number 00001 -i Scatter_%05d.png -i Treehome95.wav Treehome95Movie.mp4
 ```
 The ```-framerate``` takes a parameter that is determined by the duration of the song and the number
-of images you need to extend over the playback. Also the ```start number``` is the first ```png``` image in that directory.
+of images you need to extend over the playback. Once you know the number of images you divide it by
+the duration and invert it to get the parameter. ```1 / (numImages / duration) ```Also the ```start number```
+is the first ```png``` image in that directory.
+
 If you wish to learn more on creating video slideshows from images, then go to [framerate]. 
 
 *You need the full version of ffmpeg (or a version of ffmpeg capable of creating video 
