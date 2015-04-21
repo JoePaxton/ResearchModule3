@@ -1,7 +1,5 @@
 Animated Analysis of **Treehome by Tyler, the Creator**
 
-
-
 **Purpose**
 
 
@@ -39,8 +37,12 @@ def avgfftbands(fftarray):
 1. [numpyfft]
 2. [fftavgs]
 3. [fftrelationship]
+4. [fft.py]
+5. [build2.py]
 
 
 [numpyfft]: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
 [fftavgs]: http://code.compartmental.net/2007/03/21/fft-averages/comment-page-1/
 [fftrelationship]: http://www.vibrationworld.com/AppNotes%5CSampling.htm
+[fft.py]: https://github.com/JoePaxton/ResearchModule3/blob/master/fft.py
+[build2.py]: https://github.com/JoePaxton/ResearchModule3/blob/master/build2.py
