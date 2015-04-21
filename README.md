@@ -61,8 +61,32 @@ each point in the [FFT] corresponds to and the bandwidth at the point in ```band
 us to compute the logarithmically spaced averages. This maps the frequencies to the [FFT] spectrum.
 
 This computes only 12 averages, which determines the number of octaves based on the sample rate and the 
-smallest bandwidth needed for a single octave.
+smallest bandwidth needed for a single octave. The code from [fftavgs] below explains how to get the averages:
 
+```python
+for (int i = 0; i < 12; i++)
+{
+  float avg = 0;
+  int lowFreq;
+  if ( i == 0 ) 
+    lowFreq = 0;
+  else
+    lowFreq = (int)((sampleRate/2) / (float)Math.pow(2, 12 - i));
+  int hiFreq = (int)((sampleRate/2) / (float)Math.pow(2, 11 - i));
+  int lowBound = freqToIndex(lowFreq);
+  int hiBound = freqToIndex(hiFreq);
+  for (int j = lowBound; j <= hiBound; j++)
+  {
+    avg += spectrum[j];
+  }
+  // line has been changed since discussion in the comments
+  // avg /= (hiBound - lowBound);
+  avg /= (hiBound - lowBound + 1);
+  averages[i] = avg;
+}
+```
+
+My implementation:
  ```python
 def avgfftbands(fftarray):
     numBands = 12
