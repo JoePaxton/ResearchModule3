@@ -11,9 +11,9 @@ matplotlib.use('Agg')
 from matplotlib import pylab
 import matplotlib.pyplot as plt
 
-filename = "Treehome95.wav"
  
 if __name__ == '__main__':
+    filename = "Treehome95.wav"
     fileW = audio.LocalAudioFile(filename)
     trackTitle = open(filename)
     trackName = track_from_file(trackTitle, 'wav')
@@ -32,7 +32,8 @@ if __name__ == '__main__':
     fwidth = 1.0/fps
     sampleSize = fwidth * float(sampleRate)
     transforms = int(round(processLen * fps))
- 
+    fftavg = []
+    
     """Returns the bandwidth"""
     def getBandWidth():
 		return (2.0 / sampleSize) * (sampleRate / 2.0)
@@ -50,7 +51,6 @@ if __name__ == '__main__':
     
     """Returns the average frequency for each of the twelve bands"""
     def avgfftbands(fftarray):
-    	fftavg = []
         numBands = 12
         del fftavg[:]
         for band in range(0, numBands):
