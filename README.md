@@ -8,7 +8,7 @@
 
 The following command-line prompt will do the trick:
 ```
-ffmpeg -start_number 00000 -i frame_%05d.png -i Treehome95.wav Treehome95.mpg
+ffmpeg -start_number 00000 -i frame_%05d.png -i Treehome95.wav Treehome95Movie.mpg
 ```
 where **Treehome95** is the song name in the same directory as the ```png``` images.
 
