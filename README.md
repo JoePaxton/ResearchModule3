@@ -1,4 +1,4 @@
-Animated Analysis of **Treehome by Tyler, the Creator**
+##Animated Analysis of Treehome by Tyler, the Creator
 
 **Purpose**
 
