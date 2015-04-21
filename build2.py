@@ -1,3 +1,4 @@
+# Look at README.md for the purpose and how to use this
 import echonest.remix.audio as audio
 import numpy as np
 import matplotlib.pyplot as plt
