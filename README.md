@@ -20,9 +20,9 @@ If you wish, you can change the song. Keep in mind that the ```wav``` file needs
 in the same directory as this program or you can just fully qualify the path.
 
 
-[build2.py] analyzes the timbre and pitches over segments in a movie file. The movie file
-is hundreds of still frame ```png``` images at a certain point in the song. The amount of
-segments there are is equivalent to the amount of images that are produced. 
+[build2.py] analyzes the timbre and pitches over segments in a movie file. The movie file is hundreds 
+of still frame ```png``` images at a certain point in the song. The amount of segments there are is 
+equivalent to the amount of images that are produced. 
 
 Since, I do not incorporate the frame rate, the command line will do the trick:
 ```
@@ -39,11 +39,7 @@ the images to be uploaded so you do not run low on disk space.*
 
 When the [FFT] has a bunch of bins (equally divided strips in a window that describes the spectrum sample and frequency of the window), every signal is in the center of all the bins. The [FFT] simply takes a chunk of time (samples) and considers that chunk to be a single period of a repeating waveform. Most sounds are constant. Over any short period of time, the sound usually look like a regularly repeating function.
 
-Since noise may be present on samples, it may be advantageous to take several samples and average the resu1ts. This is done by averaging the spectral lines after the [FFT] is completed, which may reduce the background noise level. Since this greatly increases the computer time, it should not be used except as needed and with fast processors.
-
-Every point of the [FFT] describes the spectral density of the frequency band that is centered
-on a frequency that is a fraction of the sampling rate. The spectral density is the amplitude
-present for each bandwidth. 
+Every point of the [FFT] describes the spectral density of the frequency band that is centered on a frequency that is a fraction of the sampling rate. The spectral density is the amplitude present for each bandwidth. 
 
 [fftavgs] quotes, "Given a sample of 1024 samples with a sampling rate of 441100 Hz, a 1024 point [FFT] will give
 us a freuqency spectrum of 513 points with a total bandwith of 22050 Hz. Each point ```i``` in the
