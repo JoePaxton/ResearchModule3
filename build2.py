@@ -1,4 +1,5 @@
 # Look at README.md for the purpose and how to use this
+__author__ = "Joe Paxton"
 import echonest.remix.audio as audio
 import numpy as np
 import matplotlib.pyplot as plt
