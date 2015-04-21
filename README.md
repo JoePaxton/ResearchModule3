@@ -79,9 +79,7 @@ for (int i = 0; i < 12; i++)
   {
     avg += spectrum[j];
   }
-  // line has been changed since discussion in the comments
-  // avg /= (hiBound - lowBound);
-  avg /= (hiBound - lowBound + 1);
+  avg = avg / (hiBound - lowBound + 1);
   averages[i] = avg;
 }
 ```
