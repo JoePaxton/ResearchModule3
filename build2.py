@@ -1,4 +1,4 @@
-# Look at README.md for the purpose and how to use this
+# Look at README.md before use
 __author__ = "Joe Paxton"
 import echonest.remix.audio as audio
 import numpy as np
