@@ -33,10 +33,12 @@ if __name__ == '__main__':
     sampleSize = fwidth * float(sampleRate)
     transforms = int(round(processLen * fps))
  
+    """Returns the bandwidth"""
     def getBandWidth():
 		return (2.0 / sampleSize) * (sampleRate / 2.0)
  
-    def freqToIndex(f):
+    """Returns the index of where the frequency occurs"""
+    def freqIndx(f):
 		if f < getBandWidth()/2:
 			return 0
 		if f > (sampleRate / 2) - (getBandWidth() / 2):
@@ -45,26 +47,27 @@ if __name__ == '__main__':
 		fraction = float(f) / float(sampleRate)
 		index = round(sampleSize * fraction)
 		return index
-		
-    fftavg = []
     
+    """Returns the average frequency for each of the twelve bands"""
     def avgfftbands(fftarray):
+    	fftavg = []
         numBands = 12
         del fftavg[:]
         for band in range(0, numBands):
             avg = 0.0
             if band == 0:
-                lowFreq = int(0)
+                lowFreq = 0
             else:
                 lowFreq = int(int(sampleRate / 2) / float(2 ** (numBands - band)))		  
             hiFreq = int((sampleRate / 2) / float(2 ** ((numBands-1) - band)))
-            lowBound = int(freqToIndex(lowFreq))
-            upperBound = int(freqToIndex(hiFreq))
+            lowBound = int(freqIndx(lowFreq))
+            upperBound = int(freqIndx(hiFreq))
             for j in range(lowBound, upperBound):
                 avg += fftarray[j]			
             avg /= (upperBound - lowBound + 1)
             fftavg.append(avg)
 
+    """Places all of the samples into your directory"""
     x = range(0, 12)
     for offset in range(0, transforms):
 		start = int(offset * sampleSize)
