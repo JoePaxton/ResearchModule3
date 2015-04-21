@@ -19,7 +19,7 @@ if __name__ == '__main__':
     trackName = track_from_file(trackTitle, 'wav')
     sampleRate = fileW.sampleRate
     duration = fileW.duration
-    processLen = int(duration)-1
+    processLen = int(duration) - 1
     fileW = wave.open(filename, 'r')
     dataSize = fileW.getnframes()
     read = fileW.readframes(dataSize)
@@ -29,25 +29,25 @@ if __name__ == '__main__':
     read = struct.unpack(unpack, read)
     
     fps = 24
-    fwidth = 1.0/fps
+    fwidth = 1.0 / fps
     sampleSize = fwidth * float(sampleRate)
     transforms = int(round(processLen * fps))
     fftavg = []
     
     """Returns the bandwidth"""
     def getBandWidth():
-		return (2.0 / sampleSize) * (sampleRate / 2.0)
+    	return (2.0 / sampleSize) * (sampleRate / 2.0)
  
     """Returns the index of where the frequency occurs"""
     def freqIndx(f):
-		if f < getBandWidth()/2:
-			return 0
-		if f > (sampleRate / 2) - (getBandWidth() / 2):
-			return sampleSize -1
+        if f < getBandWidth()/2:
+            return 0
+	if f > (sampleRate / 2) - (getBandWidth() / 2):
+	    return sampleSize -1
 		
-		fraction = float(f) / float(sampleRate)
-		index = round(sampleSize * fraction)
-		return index
+	fraction = float(f) / float(sampleRate)
+	index = round(sampleSize * fraction)
+	return index
     
     """Returns the average frequency for each of the twelve bands"""
     def avgfftbands(fftarray):
@@ -70,18 +70,18 @@ if __name__ == '__main__':
     """Places all of the samples into your directory"""
     x = range(0, 12)
     for offset in range(0, transforms):
-		start = int(offset * sampleSize)
-		end = int((offset * sampleSize) + sampleSize -1)
-		print "\rProcessing sample %i of %i (%d seconds)" % (offset + 1, transforms, end/float(sampleRate)),
-		sampleRange = read[start:end]
-		fft = abs(np.fft.fft(sampleRange))
-		fft *= ((2**.5)/sampleSize)
-		plt.ylim(0, 1000)
-		avgfftbands(fft)
-		y = fftavg
-		width = 0.35
-		plt.title(trackName)
-		p1 = plt.bar(x, y, width, color='r')
-		filename = str('frame_%05d' % offset) + '.png'
-		plt.savefig(filename, dpi=100)
-		plt.close()
+	start = int(offset * sampleSize)
+	end = int((offset * sampleSize) + sampleSize -1)
+	print "\rProcessing sample %i of %i (%d seconds)" % (offset + 1, transforms, end/float(sampleRate)),
+	sampleRange = read[start:end]
+	fft = abs(np.fft.fft(sampleRange))
+	fft *= ((2**.5)/sampleSize)
+	plt.ylim(0, 1000)
+	avgfftbands(fft)
+	y = fftavg
+	width = 0.35
+	plt.title(trackName)
+	p1 = plt.bar(x, y, width, color='r')
+	filename = str('frame_%05d' % offset) + '.png'
+	plt.savefig(filename, dpi=100)
+	plt.close()
