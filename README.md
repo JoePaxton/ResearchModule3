@@ -29,8 +29,7 @@ ffmpeg -framerate 1.28/1 -start_number 00001 -i Scatter_%05d.png -i Treehome95.w
 ```
 The ```-framerate``` takes a parameter that is determined by the duration of the song and the number
 of images you need to extend over the playback. Once you know the number of images you divide it by
-the duration and invert it to get the parameter. ```1 / (numImages / duration) ```Also the ```start number```
-is the first ```png``` image in that directory.
+the duration and invert it to get the parameter. The parameter of the ```-framerate``` is ```1 / (numImages / duration) ```. Also the ```start number```is the first ```png``` image in that directory.
 
 If you wish to learn more on creating video slideshows from images, then go to [framerate]. 
 
