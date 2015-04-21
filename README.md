@@ -1,6 +1,7 @@
 ##Animated Analysis of Treehome by Tyler, the Creator
 
 **Purpose**
+
 [fft.py] plots the Fast Fourier Transform data for a mono ```wav``` file into hundreds
 or thousands of ```png``` images into your current working directory. After all of the
 images are uploaded, ```ffmpeg``` will be used to mix the audio with the images. 
