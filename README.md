@@ -40,6 +40,7 @@ def avgfftbands(fftarray):
 3. [fftrelationship]
 
 
+
 [numpyfft]: http://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
 [fftavgs]: http://code.compartmental.net/2007/03/21/fft-averages/comment-page-1/
 [fftrelationship]: http://www.vibrationworld.com/AppNotes%5CSampling.htm
